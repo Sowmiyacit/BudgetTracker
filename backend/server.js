@@ -13,13 +13,7 @@ import aiRoutes from './routes/aiRoutes.js';
 dotenv.config();
 
 const app = express();
-app.use(cors({
-  origin: [
-    'http://localhost:3000',
-    'https://budget-tracker-git-main-sowmiyas-projects-0d4767e1.vercel.app' // <-- replace with your deployed frontend URL if any
-  ],
-  credentials: true
-}));
+app.use(cors());
 app.use(express.json());
 
 // Routes
