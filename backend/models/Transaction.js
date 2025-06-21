@@ -7,7 +7,7 @@ const transactionSchema = new mongoose.Schema({
   amount: Number,
   date: Date,
   notes: String,
-  month: String // <-- Add this line
+  month: String
 }, { timestamps: true });
 
 export default mongoose.model('Transaction', transactionSchema);
