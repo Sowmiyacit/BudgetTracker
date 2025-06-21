@@ -11,7 +11,7 @@ export const addTransaction = async (req, res) => {
     month = `${monthNames[d.getMonth()]} ${d.getFullYear()}`;
   }
 
-  // 🧠 Auto-categorization using NLP
+
   const predictedCategory = categorizeTransaction(req.body.description);
 
   const transaction = await Transaction.create({
@@ -34,7 +34,7 @@ export const deleteTransaction = async (req, res) => {
   res.json({ message: 'Transaction deleted' });
 };
 
-// Update Transaction
+
 export const updateTransaction = async (req, res) => {
   const { id } = req.params;
   const updated = await Transaction.findOneAndUpdate(
