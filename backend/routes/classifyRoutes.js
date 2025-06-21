@@ -10,7 +10,7 @@ router.post('/', (req, res) => {
     return res.json({ category: categoryPredicted });
   }
   if (category) {
-    // Return a sample description for the given category
+    
     const sample = getSampleDescription(category);
     return res.json({ description: sample });
   }
