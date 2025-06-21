@@ -25,9 +25,9 @@ const SavingPredict = () => {
     </div>
   );
 
-  // Example: Prepare chart data (last 3 months + prediction)
+
   const chartData = [
-    ...(data.lastMonths || []), // e.g. [{month: "Apr", savings: 2000}, ...]
+    ...(data.lastMonths || []), 
     { month: "Next", savings: data.predictedSavings, predicted: true }
   ];
 
@@ -62,7 +62,7 @@ const SavingPredict = () => {
                 fill="#36A2EB"
                 name="Actual Savings"
                 isAnimationActive={false}
-                // Highlight predicted bar
+       
                 label={({ index }) =>
                   chartData[index].predicted ? "Predicted" : ""
                 }
