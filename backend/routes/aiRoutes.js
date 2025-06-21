@@ -13,13 +13,13 @@ router.get('/anomalies', protect, async (req, res) => {
     const currentMonthStart = new Date(today.getFullYear(), today.getMonth(), 1);
     const last3MonthsStart = new Date(today.getFullYear(), today.getMonth() - 3, 1);
 
-    // Fetch past 3 months (excluding current month)
+    
     const pastTransactions = await Transaction.find({
       user: userId,
       createdAt: { $gte: last3MonthsStart, $lt: currentMonthStart }
     });
 
-    // Fetch current month
+  
     const currentTransactions = await Transaction.find({
       user: userId,
       createdAt: { $gte: currentMonthStart }
@@ -35,14 +35,14 @@ router.get('/anomalies', protect, async (req, res) => {
       currentTotals[cat] = 0;
     });
 
-    // Aggregate past 3 months
+   
     for (const txn of pastTransactions) {
       const cat = txn.category || 'Other';
       pastTotals[cat] += txn.amount;
       pastCounts[cat]++;
     }
 
-    // Aggregate current month
+   
     for (const txn of currentTransactions) {
       const cat = txn.category || 'Other';
       currentTotals[cat] += txn.amount;
