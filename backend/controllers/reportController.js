@@ -33,7 +33,7 @@ export const getReport = async (req, res) => {
   }
 };
 
-// Monthly Income/Expense
+
 export const getMonthlyReport = async (req, res) => {
   const userId = req.user._id;
   const data = await Transaction.aggregate([
@@ -71,7 +71,7 @@ export const getMonthlyReport = async (req, res) => {
   res.json(data);
 };
 
-// Category-wise
+
 export const getCategoryReport = async (req, res) => {
   const userId = req.user._id;
   const data = await Transaction.aggregate([
@@ -105,7 +105,7 @@ export const getCategoryReport = async (req, res) => {
   res.json(data);
 };
 
-// Pie chart (expenses by category)
+
 export const getPieReport = async (req, res) => {
   const userId = req.user._id;
   const data = await Transaction.aggregate([
