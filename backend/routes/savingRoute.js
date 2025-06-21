@@ -8,12 +8,12 @@ router.get('/predict', protect, async (req, res) => {
   try {
     const userId = req.user._id;
 
-    // Calculate 90 days window
+    
     const today = new Date();
     const ninetyDaysAgo = new Date();
     ninetyDaysAgo.setDate(today.getDate() - 90);
 
-    // Fetch last 90 days transactions
+ 
     const transactions = await Transaction.find({
       user: userId,
       createdAt: { $gte: ninetyDaysAgo }
@@ -30,7 +30,7 @@ router.get('/predict', protect, async (req, res) => {
       }
     });
 
-    // Calculate average monthly expense (divide by 3 months)
+   
     const avgMonthlyExpense = Math.round(totalExpense / 3);
     const predictedSavings = totalIncome - avgMonthlyExpense;
 
