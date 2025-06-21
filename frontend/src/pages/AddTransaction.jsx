@@ -21,7 +21,7 @@ const AddTransaction = () => {
     date: ''
   });
 
-  // NLP: Predict category from description
+ 
   const handleDescriptionChange = async (desc) => {
     setFormData(prev => ({ ...prev, notes: desc }));
     if (desc.length > 3) {
@@ -31,12 +31,12 @@ const AddTransaction = () => {
           setFormData(prev => ({ ...prev, category: res.data.category }));
         }
       } catch (err) {
-        // ignore error
+      
       }
     }
   };
 
-  // NLP: Suggest description from category
+  
   const handleCategoryChange = async (cat) => {
     setFormData(prev => ({ ...prev, category: cat }));
     if (cat) {
@@ -46,7 +46,7 @@ const AddTransaction = () => {
           setFormData(prev => ({ ...prev, notes: res.data.description }));
         }
       } catch (err) {
-        // ignore error
+       
       }
     }
   };
@@ -54,7 +54,7 @@ const AddTransaction = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Calculate Month string from date field
+    
     let monthFormatted = '';
     if (formData.date) {
       const d = new Date(formData.date);
